@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding:0;
+	background-color:#6699CC;
+}
+nav{
+	width:100%;
+	background: white;
+	overflow:auto;
+}
+.logo img{
+	height:10%;
+	width:10.5%;
+	margin-left: 10px;
+	position:absolute;	
+}
+.logo1{
+	margin-left: 10rem;
+}
+
+
+ul {
+  list-style: none;
+  margin: 0 0 0 150px ;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  display:flex;
+  justify-content: flex-end;
+}
+
+li {
+  float: left;
+  
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color:#6699CC;
+  color:Blue;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #6699CC;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: black;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+tab{
+	background-color: #4267B2;
+}
+
+   .value {
+        font-weight: bold;
+    }
+     
+    .ui-datatable {
+       margin-left: 20px;
+       margin-right: 20px;
+       border-style:groove;
+       background-color: blue;
+    }
+     
+    .ui-datatable .ui-datatable-footer {
+        text-align:left;
+    }
+     
+    .ui-datalist ul {
+        padding: 0 0 0 10px;
+        margin: 5px 0;
+    }
+     
+    .ui-datatable .ui-button-icon-only .ui-button-text {
+        padding: 0;
+        line-height: 1.2;
+    }
+    .p-formgroup-inline {
+  	display: flex;
+ 	 flex-wrap: wrap;
+  	align-items: flex-start;
+}
+.p-field > label{
+
+  margin-right: 22rem;
+  margin-bottom: 0;
+ 
+}
+.p-field1 > label{
+
+  margin-right: 19.3rem;
+  margin-bottom: 0;
+ 
+}
+.p-md-6{
+padding:0.5rem;
+}

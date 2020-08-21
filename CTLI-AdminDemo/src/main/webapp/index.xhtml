@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	 xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+	<title>SendSMSDemo</title>
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" />
+		<ui:decorate template="Template.xhtml"/>
+	<link rel="stylesheet" href="/css/styles.css"/>	
+</h:head>
+
+<h:body>
+<br/>
+	<h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+    <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+	<h:form>
+	<div class="p-formgroup-inline">
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="button"/>
+        	<p:calendar id="button" placeholder="Date From" showOn="button" />	
+            </div>
+             <div class="p-field1 p-col-12 p-md-6">
+             <p:outputLabel for="button"/>
+        	<p:calendar id="button1" placeholder="Date To" showOn="button" />	
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname1" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname1" placeholder="Policy Number" />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname2" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname2" placeholder="Name" />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname5" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname5" placeholder="Firstname" />
+        </div>
+           <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="branch" styleClass="ui-sr-only"/>
+            <p:inputText id="branch" placeholder="Yangon" />
+        </div>
+        
+      </div>
+   		<p:commandButton  icon="pi pi-search" value="Search" style="float:right;" />
+    <br/>
+  
+  	<br/>
+      
+
+	<h1 class="text-center">CTLI-Admin</h1>
+	
+		<p:dataTable var="customer"
+			value="#{iUserServices.users}">
+			<p:column headerText="ID">
+				<h:outputText value="#{customer.id}" />
+			</p:column>
+
+			<p:column headerText="Name">
+				<h:outputText value="#{customer.name}" />
+			</p:column>
+
+			<p:column headerText="PhoneNumber">
+				<h:outputText value="#{customer.phnum}" />
+			</p:column>
+
+			<p:column headerText="SendNoti">
+				<p:commandButton value="SendNoti"
+					action="#{iUserServices.SendNoti(customer.id)}">
+				</p:commandButton>
+			</p:column>
+			
+			<p:column headerText="SendSMS">
+				<p:commandButton value="SendSMS" action="#{iUserServices.sendSMS(customer.phnum)}">
+				
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
