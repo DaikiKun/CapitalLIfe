@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+	<h:head>
+	<ui:decorate template="Template.xhtml"/>
+	<link rel="stylesheet" href="/css/style.css"/>	
+	
+	</h:head>
+	<h:body>
+	<br/>
+	<h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+    <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+	 <h:form id="form" var="car" value="#{carView.cars}">
+	<div class="p-formgroup-inline">
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="button"/>
+        	<p:calendar id="button" placeholder="Date From" showOn="button" />	
+            </div>
+             <div class="p-field1 p-col-12 p-md-6">
+             <p:outputLabel for="button"/>
+        	<p:calendar id="button1" placeholder="Date To" showOn="button" />	
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname1" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname1" placeholder="Policy Number" />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname2" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname2" placeholder="Name" />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname5" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname5" placeholder="Firstname" />
+        </div>
+           <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="branch" styleClass="ui-sr-only"/>
+            <p:inputText id="branch" placeholder="Yangon" />
+        </div>
+        
+      </div>
+   		<p:commandButton process="checkboxDT" update="form" icon="pi pi-search" value="Search" style="float:right;" />
+    <br/>
+  
+  	<br/>
+      
+	  <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+    <p:dataTable id="checkboxDT" var="car" value="#{carView.cars}"  selection="#{carView.selectedCar}" rowKey="#{car.id}" style="margin-bottom:0">
+        <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+        <p:column headerText="Id">
+            <h:outputText value="#{car.id}" />
+        </p:column>
+        <p:column headerText="Year">
+            <h:outputText value="#{car.year}" />
+        </p:column>
+        <p:column headerText="Brand">
+            <h:outputText value="#{car.brand}" />
+        </p:column>
+        <p:column headerText="Color">
+            <h:outputText value="#{car.color}" /> 
+        </p:column>
+           <f:facet name="footer">
+            <p:commandButton id="cb" process="checkboxDT" update="form" icon="pi pi-trash" value="Delete"/>
+        </f:facet>
+    </p:dataTable>
+        <p:dialog header="Selected Cars" widgetVar="multiCarDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="220">
+        <p:outputPanel id="multiCarDetail" style="text-align:center;">
+            <ui:repeat value="#{carView.selectedCar}" var="car">
+                <h:outputText value="#{car.id} - #{car.brand}" style="display:block"/>
+            </ui:repeat>
+            </p:outputPanel>
+    </p:dialog>
+    </h:form>
+	</h:body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" >
+
+	<h:head>
+	<style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+     
+    .ui-datatable {
+        margin-bottom: 25px
+    }
+     
+    .ui-datatable .ui-datatable-footer {
+        text-align:left;
+    }
+     
+    .ui-datalist ul {
+        padding: 0 0 0 10px;
+        margin: 5px 0;
+    }
+     
+    .ui-datatable .ui-button-icon-only .ui-button-text {
+        padding: 0;
+        line-height: 1.2;
+    }
+</style>
+</h:head>
+<h:body>
+<h:form id="form">
+    <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+    <p:dataTable id="checkboxDT" var="car" value="#{carView.cars}"  selection="#{carView.selectedCar}" rowKey="#{car.id}" style="margin-bottom:0">
+        <f:facet name="header">
+            Checkbox
+        </f:facet>
+        <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+        <p:column headerText="Id">
+            <h:outputText value="#{car.id}" />
+        </p:column>
+        <p:column headerText="Year">
+            <h:outputText value="#{car.year}" />
+        </p:column>
+        <p:column headerText="Brand">
+            <h:outputText value="#{car.brand}" />
+        </p:column>
+        <p:column headerText="Color">
+            <h:outputText value="#{car.color}" /> 
+        </p:column>
+           <f:facet name="footer">
+            <p:commandButton process="checkboxDT" update="form" icon="pi pi-search" value="Delete" action="#{carView.delete(car.id)}" 		 />
+        </f:facet>
+    </p:dataTable>
+        <p:dialog header="Selected Cars" widgetVar="multiCarDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="220">
+        <p:outputPanel id="multiCarDetail" style="text-align:center;">
+            <ui:repeat value="#{carView.selectedCar}" var="car">
+                <h:outputText value="#{car.id} - #{car.brand}" style="display:block"/>
+            </ui:repeat>
+            </p:outputPanel>
+    </p:dialog>
+    </h:form>
+</h:body>
+</html>

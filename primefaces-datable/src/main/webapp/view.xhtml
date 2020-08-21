@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+	<h:head>
+	<style>
+	
+	.p-formgroup-inline {
+  	display: flex;
+ 	 flex-wrap: wrap;
+  	align-items: flex-start;
+}
+.p-field > label{
+
+  margin-right: 22rem;
+  margin-bottom: 0;
+ 
+}
+.p-field1 > label{
+
+  margin-right: 19.3rem;
+  margin-bottom: 0;
+ 
+}
+.p-md-6{
+padding:0.5rem;
+}
+	</style>
+	</h:head>
+	
+	<h:body style="background-color:#6699CC">
+	<form id="form">
+		<div class="p-formgroup-inline">
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="button"/>
+        	<p:calendar id="button" placeholder="Date From" showOn="button" />	
+            </div>
+             <div class="p-field1 p-col-12 p-md-6">
+             <p:outputLabel for="button"/>
+        	<p:calendar id="button1" placeholder="Date To" showOn="button" />	
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname5" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname5" placeholder="Firstname" />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname5" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname5" placeholder="Firstname" />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="firstname5" styleClass="ui-sr-only"/>
+            <p:inputText id="firstname5" placeholder="Firstname" />
+        </div>
+           <div class="p-field p-col-12 p-md-6">
+            <p:outputLabel for="branch" styleClass="ui-sr-only"/>
+            <p:inputText id="branch" placeholder="Yangon" />
+        </div>
+      </div>
+	</form>
+	</h:body>
+</html>
